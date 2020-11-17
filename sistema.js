@@ -58,8 +58,8 @@ function deleteRow() {
 
 function updateItems() {
   let editIcon = document.querySelectorAll(".fa-edit");
-  let targetText = document.querySelectorAll(".tdEdit");
-  editIcon[targetText.length - 1].addEventListener("click", event => {
+  // let targetText = document.querySelectorAll(".tdEdit");
+  editIcon[editIcon.length - 1].addEventListener("click", event => {
     editIcon = event.target;
     editIcon.innerText = "test";
 
