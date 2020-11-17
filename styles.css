@@ -1,3 +1,7 @@
 #togglePassword, button, .fas {
   cursor: pointer;
 }
+
+.red {
+  background-color: red;
+}
