@@ -1,6 +1,8 @@
-## Sistema CRUD
+## Sistema CRUD completamente estático
 
 ✔ Construído com JavaScript puro, CSS3 e HTML5.
+
+✔ Utiliza cookies por *localStorage*.
 
 ### [Confira](https://renanmdp.github.io/nova-singular/)
 
