@@ -5,6 +5,8 @@
     <meta name="author" content="Renan Martineli de Paula" />
     <meta name="description" content="locadora de filmes Nova Singular processo seletivo desenvolvimento - cadastro/signup" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="reset.css" />
     <link type="text/css" rel="stylesheet" href="styles.css" />
@@ -13,72 +15,25 @@
     <title>Cadastro</title>
   </head>
   <body>
+    <h1>Faça seu cadastro!</h1>
     <form action="cadastros.json" id="signup-form" method="GET">
       <fieldset>
         <legend>Informe seus dados</legend>
 
-        <label for="userName">
-          <p>Crie um nome de usuário</p>
-          <input type="text" id="userName" name="userName" required maxlength="8"/>
-        </label>
+        <div id="signupInputs">
+          <label for="userName">
+            <p>Crie um nome de usuário</p>
+            <input type="text" id="userName" class="userNameSignup" name="userName" required maxlength="8"/>
+          </label>
 
-        <label for="password">
-          <p>Crie uma senha</p>
-          <input type="password" id="password" name="password" required maxlength="8"/>
-          <i class="far fa-eye" id="togglePassword"></i>
-        </label>
+          <label for="password">
+            <p>Crie uma senha</p>
+            <input type="password" id="password" class="passwordSignup" name="password" required maxlength="8"/>
+            <i class="far fa-eye" id="togglePassword"></i>
+          </label>
+        </div>
 
-        <!-- <label for="nameCreation">
-          <p>Nome</p>
-          <input type="text" id="nameCreation" required />
-        </label>
-
-        <label for="age">
-          <p>Idade</p>
-          <input type="date" id="age" required />
-        </label>
-
-        <label for="male">
-          <p>Sexo</p>
-          <input type="radio" id="male" name="gender" value="Masculino" required />
-        </label>
-        <span>Masculino</span>
-        <label for="female">
-          <input type="radio" id="female" name="gender" value="Feminino" required />
-        </label>
-        <span>Feminino</span>
-
-        <label for="estados">
-          <p>Estado</p>
-          <select id="estados" name="estados-brasil" required >
-            <option value=""></option>
-          </select>
-        </label>
-
-        <label for="cidades">
-          <p>Cidade</p>
-          <select id="cidades" name="cidades-brasil"></select>
-        </label>
-
-        <label for="address">
-          <p>Logradouro</p>
-          <input type="text" id="address" required />
-        </label>
-
-        <label for="addressNumber">
-          <p>Número</p>
-          <input type="text" id="addressNumber" required />
-        </label>
-
-        <label for="borough">
-          <p>Bairro</p>
-          <input type="text" id="borough" required />
-        </label>
-
-        <label for="email">
-          <p>Email</p>
-          <input type="email" id="email" required />
-        </label> -->
+        <br />
 
         <button id="submitButton" type="submit" name="submit">Cadastrar-se!</button>
       </fieldset>

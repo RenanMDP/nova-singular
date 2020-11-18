@@ -1,7 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("bg.jpg");
+  font-family: 'Nova Mono', 'Open Sans', sans-serif;
+}
+
+#footer {
+  text-align: center;
+}
+
+#accReminderFooter {
+  margin: 20px 0 20px 0;
+}
+
+#accReminderFooter p {
+  margin-bottom: 10px;
+}
+
+#accRemoverFooter p {
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+#indexField, form, #systemInputs {
+  margin: 50px 0 50px 0;
+  text-align: center;
+}
+
+#indexInputs, #signupInputs {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 20px;
+}
+
+#systemName {
+  margin-top: 50px;
+}
+
+#password {
+  width: 250px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  box-shadow: 1px 1px 1px black;
+}
+
+#password:focus {
+  background-color: rgb(191, 236, 179);
+}
+
+#userName, #name, #movie {
+  width: 250px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 5px;
+  box-shadow: 1px 1px 1px black;
+}
+
+#userName:focus, #name:focus, #movie:focus {
+  background-color: rgb(191, 236, 179);
+}
+
+.userNameSignup,.passwordSignup, #name, #movie {
+  margin-top: 10px !important;
+}
+
+#rentStatus {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 5px;
+  box-shadow: 1px 1px 1px black;
+}
+
 #togglePassword, button, .fas {
   cursor: pointer;
 }
 
-.red {
-  background-color: red;
+.table {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #585656;
+}
+
+table tr:nth-child(even) {
+  background-color: #585656;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #63af4c;
+  color: white;
+}
+
+td i:nth-child(2) {
+  float: right;
+}
+
+td i:nth-child(3) {
+  float: right;
+}
+
+td:nth-child(4) {
+  text-align: center !important;
+}
+
+td input {
+  width: 40%;
+}
+
+td input:focus {
+  background-color: rgb(191, 236, 179);
+}
+
+caption {
+  text-align: center;
+  margin-bottom: 5px;
 }

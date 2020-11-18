@@ -1,3 +1,6 @@
+let iconIDPrefix = "icon";
+let iconIDSuffix = 1;
+
 const createTd = item => {
   const Td = document.createElement("td");
   Td.innerHTML = item;
@@ -5,13 +8,15 @@ const createTd = item => {
 };
 
 const createTdWithI = item => {
+  const span = document.createElement("span");
   const Td = document.createElement("td");
   const i = document.createElement("i");
-  Td.innerHTML = item;
   Td.setAttribute("class", "tdEdit");
-  Td.appendChild(i).setAttribute("class", "fas fa-edit");
+  Td.appendChild(span);
+  span.innerHTML = item;
+  Td.appendChild(i).setAttribute("class", `fas fa-edit ${iconIDPrefix + iconIDSuffix++}`);
   return Td;
-}
+};
 
 const appendChildren = (parent, children) => {
   children.forEach(child => {
@@ -20,24 +25,97 @@ const appendChildren = (parent, children) => {
   });
 };
 
-document.querySelector("#addClientBtn").addEventListener("click", () => {
+const nomeForm = () => {
   const clientName = document.querySelector("#name").value;
-  const clientMovie = document.querySelector("#movie").value;
-  const clientLocado = document.querySelector("#rentStatus").value;
-
   localStorage.setItem("clientName", clientName);
-  localStorage.setItem("clientMovie", clientMovie);
-  localStorage.setItem("clientLocado", clientLocado);
+  const nomeStorage = localStorage.getItem("clientName");
 
+  const nomeInput = document.createElement("input");
+  nomeInput.setAttribute("type", "text");
+  nomeInput.setAttribute("value", nomeStorage);
+  nomeInput.setAttribute("readonly", "readonly");
+
+  const Td = document.createElement("td");
+  const i = document.createElement("i");
+  Td.appendChild(nomeInput);
+  Td.appendChild(i).setAttribute("class", `fas fa-edit nomeForm`);
+
+  return Td;
+}
+
+const filmeForm = () => {
+  const clientMovie = document.querySelector("#movie").value;
+  localStorage.setItem("clientMovie", clientMovie);
+  const filmeStorage = localStorage.getItem("clientMovie");
+
+  const filmeInput = document.createElement("input");
+  filmeInput.setAttribute("type", "text");
+  filmeInput.setAttribute("value", filmeStorage);
+  filmeInput.setAttribute("readonly", "readonly");
+
+  const Td = document.createElement("td");
+  const i = document.createElement("i");
+  Td.appendChild(filmeInput);
+  Td.appendChild(i).setAttribute("class", `fas fa-edit filmeForm`);
+
+  return Td;
+};
+
+const locadoForm = () => {
+  const clientLocado = document.querySelector("#rentStatus").value;
+  localStorage.setItem("clientLocado", clientLocado);
+  const inputStorage = localStorage.getItem("clientLocado");
+
+  const locadoInput = document.createElement("select");
+  locadoInput.setAttribute("name", "locadoInput");
+
+  const locadoOption1 = document.createElement("option");
+  const locadoOption2 = document.createElement("option");
+
+  if (inputStorage === "Não") {
+    locadoOption1.setAttribute("value", inputStorage);
+    locadoOption1.innerHTML = inputStorage;
+
+    locadoOption2.value = "Sim";
+    locadoOption2.innerHTML = "Sim";
+  } else if (inputStorage === "Sim") {
+    locadoOption1.setAttribute("value", inputStorage);
+    locadoOption1.innerHTML = inputStorage;
+
+    locadoOption2.value = "Não";
+    locadoOption2.innerHTML = "Não";
+  }
+
+  const Td = document.createElement("td");
+  Td.appendChild(locadoInput);
+
+  locadoInput.appendChild(locadoOption1);
+  locadoInput.appendChild(locadoOption2);
+
+  return Td;
+};
+
+const trashIcon = () => {
+  
+  const i = document.createElement("i");
+  i.setAttribute("class", "fas fa-trash center");
+
+  const Td = document.createElement("td");
+  Td.appendChild(i);
+
+  return Td;
+};
+
+document.querySelector("#addClientBtn").addEventListener("click", () => {
   const getTbody = document.querySelector("#tbody");
   const createTr = document.createElement("tr");
   const appendTr = getTbody.appendChild(createTr);
 
   const items = [
-    createTdWithI(localStorage.getItem("clientName")),
-    createTdWithI(localStorage.getItem("clientMovie")),
-    createTdWithI(localStorage.getItem("clientLocado")),
-    createTd('<i class="fas fa-trash"></i>')
+    nomeForm(),
+    filmeForm(),
+    locadoForm(),
+    trashIcon()
   ];
 
   appendChildren(appendTr, items);
@@ -58,32 +136,44 @@ function deleteRow() {
 
 function updateItems() {
   let editIcon = document.querySelectorAll(".fa-edit");
-  // let targetText = document.querySelectorAll(".tdEdit");
-  editIcon[editIcon.length - 1].addEventListener("click", event => {
-    editIcon = event.target;
-    editIcon.innerText = "test";
+  let editIconBool = false;
 
-    // for (let i = 0; i < editIcon.length; i++) {
-    //   editIcon.length = i;
-    //   editIcon[i] = event.target;
-    //   editIcon[i].innerText = "testLocado";
-    // }
+  for(let icon of editIcon){
+    icon.addEventListener('click', (event) => {
+      editIcon = event.target;
+      const editField = editIcon.previousSibling;
+  
+      if (editIcon.classList.contains("nomeForm")) {
+        editField.removeAttribute("readonly");
 
+        // editField.addEventListener("onblur", () => {
+        //   editField.setAttribute("readonly", "readonly");
+        //   alert(editField.value);
+        // });
 
-    // if (editIcon.length === editIcon.length - 1) {
-    //   editIcon = event.target;
-    //   editIcon.innerText = "testLocado";
-    // } else if (editIcon.length === editIcon.length - 2) {
-    //   editIcon = event.target;
-    //   editIcon.parentNode.innerText = "testFilme";
-    // } else if (editIcon.length === editIcon.length - 3) {
-    //   editIcon = event.target;
-    //   editIcon.parentNode.innetText = "testNome";
-    // }
-      
-  });
+        editField.addEventListener("keyup", event => {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            editField.setAttribute("readonly", "readonly");
+          }
+        });
+      }
+
+      if (editIcon.classList.contains("filmeForm")) {
+        editField.removeAttribute("readonly");
+
+        // editField.addEventListener("onblur", () => {
+        //   editField.setAttribute("readonly", "readonly");
+        //   alert(editField.value);
+        // });
+
+        editField.addEventListener("keyup", event => {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            editField.setAttribute("readonly", "readonly");
+          }
+        });
+      }
+    }, false);
+  }
 }
-
-
-// <i class="fas fa-edit"></i>
-// <i class="fas fa-trash"></i>

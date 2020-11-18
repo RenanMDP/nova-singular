@@ -5,6 +5,8 @@
     <meta name="author" content="Renan Martineli de Paula" />
     <meta name="description" content="locadora de filmes Nova Singular processo seletivo desenvolvimento" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="reset.css" />
     <link type="text/css" rel="stylesheet" href="styles.css" />
@@ -14,30 +16,42 @@
   </head>
   <body>
     <h1>Bem vindo(a) ao sistema da locadora Nova Singular!</h1>
-    <fieldset>
-      <legend>Informe seu login</legend>
+    <div id="indexField">
+      <fieldset>
+        <legend>Informe seu login</legend>
 
-      <label for="userName">
-        <input type="text" id="userName" placeholder="Insira seu nome de usuário..." required maxlength="8" />
-      </label>
+        <div id="indexInputs">
+          <label for="userName">
+            <input type="text" id="userName" placeholder="Insira seu nome de usuário..." required maxlength="8" />
+          </label>
 
-      <br />
+          <br />
+          
+          <label for="password">
+            <input type="password" id="password" placeholder="Insira sua senha..." required maxlength="8" />
+            <i class="far fa-eye" id="togglePassword"></i>
+          </label>
+        </div>
 
-      <label for="password">
-        <input type="password" id="password" placeholder="Insira sua senha..." required maxlength="8" />
-        <i class="far fa-eye" id="togglePassword"></i>
-      </label>
+        <br />
 
-      <button id="validateLogin">Entrar</button>
-  </fieldset>
-    <h3>
-      <a href="signup.html" target="_blank">Não tem cadastro? Clique aqui para se cadastrar!</a> <!--Don't have an account? Click here to sign up!-->
-    </h3>
+        <button id="validateLogin">Entrar</button>
+      </fieldset>
+    </div>
+    <div id="footer">
+      <p id="newAccountFooter">
+        <a href="signup.html" target="_blank">Não tem cadastro? Clique aqui para se cadastrar!</a> <!--Don't have an account? Click here to sign up!-->
+      </p>
 
-    <p>Não lembra do seu nome de usuário e senha?</p>
-    <button id="accReminder">Clique aqui!</button>
-
-    <p>Quer remover seu usuário(cookies)?</p>
-    <button id="accRemover">Clique aqui!</button>
+      <div id="accReminderFooter">
+        <p>Não lembra do seu nome de usuário e senha?</p>
+        <button id="accReminder">Clique aqui!</button>
+      </div>
+      
+      <div id="accRemoverFooter">
+        <p>Quer remover seu usuário(cookies)?</p>
+        <button id="accRemover">Clique aqui!</button>
+      </div>
+    </div>
   </body>
 </html>

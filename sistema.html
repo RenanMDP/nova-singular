@@ -5,58 +5,71 @@
     <meta name="author" content="Renan Martineli de Paula" />
     <meta name="description" content="locadora de filmes Nova Singular processo seletivo desenvolvimento - sistema" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <!-- <link type="text/css" rel="stylesheet" href="reset.css" /> -->
+    <link type="text/css" rel="stylesheet" href="reset.css" />
     <link type="text/css" rel="stylesheet" href="styles.css" />
     <script src="sistema.js" defer></script>
     <title>Sistema</title>
   </head>
   <body>
-    <h1>Bem vindo(a), <span id="userNameWelcome"></span>.
+    <h1>Bem vindo(a), <span id="userNameWelcome"></span>.</h1>
 
-    <fieldset>
-      <legend>Cadastrar cliente</legend>
+    <div id="systemInputs">
+      <fieldset>
+        <legend>Cadastrar cliente</legend>
+        
+        <div id="systemName">
+          <label for="name">
+            <p>Nome</p>
+            <input type="text" id="name" required />
+          </label>
+        </div>
 
-      <label for="name">
-        <p>Nome</p>
-        <input type="text" id="name" required />
-      </label>
+        <div id="systemMovie">
+          <label for="movie">
+            <p>Filme</p>
+            <input type="text" id="movie" required />
+          </label>
+        </div>
 
-      <label for="movie">
-        <p>Filme</p>
-        <input type="text" id="movie" required />
-      </label>
+        <br />
 
-      <br />
+        <div id="systemRentStatus">
+          <label for="rentStatus">
+            <span>Locado?</span>
+            <select name="locado" id="rentStatus" required>
+              <option value="Sim" id="option1">Sim</option>
+              <option value="Não" name="option2" id="option2">Não</option>
+            </select>
+          </label>
+        </div>
+      
 
-      <label for="rentStatus">
-        <span>Locado?</span>
-        <select name="locado" id="rentStatus" required>
-          <option value="Sim">Sim</option>
-          <option value="Não">Não</option>
-        </select>
-      </label>
+        <br />
 
-      <br />
+        <button id="addClientBtn">Cadastrar</button>
+      </fieldset>
+    </div>
 
-      <button id="addClientBtn">Cadastrar</button>
-    </fieldset>
-
-    <input type="text" id="searchMenu" placeholder="Procure por clientes"/>
-
-    <table id="clientTable">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Filme</th>
-          <th>Locado?</th>
-          <!-- <th>Modificar</th> -->
-          <th>Deletar</th>
-        </tr>
-      </thead>
-      <tbody id="tbody">
-      </tbody>
-    </table>
+    
+    <div class="table">
+      <table id="clientTable">
+        <caption>Para editar os campos de nome e filme, clique no botão ao lado direito da célular, modifique o campo e aperte "Enter"</caption>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Filme</th>
+            <th>Locado?</th>
+            <th id="delete">Deletar</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
+    </div>
+    
   </body>
   
   <script>
