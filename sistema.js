@@ -145,6 +145,7 @@ function updateItems() {
   
       if (editIcon.classList.contains("nomeForm")) {
         editField.removeAttribute("readonly");
+        editField.focus();
 
         // editField.addEventListener("onblur", () => {
         //   editField.setAttribute("readonly", "readonly");
@@ -161,6 +162,7 @@ function updateItems() {
 
       if (editIcon.classList.contains("filmeForm")) {
         editField.removeAttribute("readonly");
+        editField.focus();
 
         // editField.addEventListener("onblur", () => {
         //   editField.setAttribute("readonly", "readonly");
